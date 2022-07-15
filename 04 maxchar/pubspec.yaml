@@ -1,0 +1,6 @@
+name: exercise
+
+dev_dependencies:
+  test: ^1.15.0
+environment:
+  sdk: '>=2.10.0 <3.0.0'
