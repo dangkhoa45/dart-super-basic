@@ -9,10 +9,16 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 List<List<int>> chunk(List<int> array, size) {
-  var chuckArray = [];
-  for (var i = 0; i < array.length; i = i + size!) {
-    chuckArray.add(
-        array.sublist(i, i + size > array.length ? array.length : i + size));
+  List<List<int>> newArray = [];
+  int originalSize = size;
+  for (var i = 0; i < array.length; i += originalSize) {
+    if ((i + originalSize) > array.length) {
+      List<int> rArray = array.sublist(i, array.length);
+      newArray.add(rArray);
+      break;
+    }
+    List<int> resultList = array.sublist(i, i + originalSize);
+    newArray.add(resultList);
   }
-  return chuckArray;
+  return newArray;
 }

@@ -9,7 +9,9 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 bool anagrams(String stringA, String stringB) {
-  
+  return (sortCharsInString(stringA) == sortCharsInString(stringB))
+      ? true
+      : false;
 }
 
 RegExp regExp = new RegExp(r"\w");
@@ -19,5 +21,8 @@ String filter(String input) {
 }
 
 String sortCharsInString(String input) {
-  
+  var list = input.toLowerCase().split("");
+  list.sort();
+  String result = list.join();
+  return result;
 }
