@@ -15,5 +15,35 @@
 import 'stack.dart';
 
 class Queue {
-  
+  Stack st1 = Stack();
+  Stack st2 = Stack();
+  Queue();
+
+  void add(var value) {
+    this.st1.push(value);
+  }
+
+  dynamic peek() {
+    while (this.st1.peek() != null) {
+      st2.push(this.st1.pop());
+    }
+
+    dynamic result = st2.peek();
+
+    while (st2.peek() != null) {
+      this.st1.push(st2.pop());
+    }
+    return result;
+  }
+
+  dynamic remove() {
+    while (this.st1.peek() != null) {
+      st2.push(this.st1.pop());
+    }
+    dynamic result = st2.pop();
+    while (st2.peek() != null) {
+      this.st1.push(st2.pop());
+    }
+    return result;
+  }
 }

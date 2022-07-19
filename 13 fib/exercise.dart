@@ -9,9 +9,14 @@
 //   fib(4) === 3
 
 int fib(int n) {
-  
+  if (n == 1 || n == 2) return 1;
+  return fib(n - 2) + fib(n - 1);
 }
 
 int fib2(int n) {
-  
+  final arr = [];
+  for (var i = 1; i <= n; i++) {
+    (i == 1 || i == 2) ? arr.add(1) : arr.add(arr[i - 3] + arr[i - 2]);
+  }
+  return arr[n - 1];
 }

@@ -25,9 +25,20 @@
 import 'queue.dart';
 
 class ProxyQueue {
-  
+  late Queue queue;
+  factory ProxyQueue(Queue queue1, Queue queue2) {
+    Queue mix = Queue();
+    int lengthMax =
+        queue1.length() > queue2.length() ? queue1.length() : queue2.length();
+    for (int i = 1; i <= lengthMax; i++) {
+      mix.add(queue1.remove());
+      mix.add(queue2.remove());
+    }
+    return ProxyQueue._default(mix);
+  }
+  ProxyQueue._default(this.queue);
 }
 
 weave(Queue sourceOne, Queue sourceTwo) {
-  return "One line only !!!";
+  return ProxyQueue(sourceOne, sourceTwo).queue;
 }

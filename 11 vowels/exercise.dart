@@ -7,11 +7,9 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-RegExp regExp = new RegExp(r"");
+RegExp regExp = new RegExp(r"[aeiouAEIOU]{1}");
 
 int vowels(String input) {
-  var lsVowels = ['a', 'e', 'i', 'o', 'u'];
-  int count = 0;
-
-  return "One line only !!!";
+  Iterable<Match> matches = regExp.allMatches(input);
+  return matches.length;
 }

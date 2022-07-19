@@ -13,10 +13,17 @@
 
 import 'linked_list.dart';
 
-Node fromLast_cheating(LinkedList list, int n) {
-  
-}
+// Node fromLast_cheating(LinkedList list, int n) {
+
+// }
 
 Node fromLast(LinkedList list, int n) {
-  
+  List<Node> listNode = [];
+  Node moveHead = list.head ?? Node(-1);
+  listNode.add(moveHead);
+  while (moveHead.next != null) {
+    moveHead = moveHead.next!;
+    listNode.add(moveHead);
+  }
+  return listNode[listNode.length - n - 1];
 }

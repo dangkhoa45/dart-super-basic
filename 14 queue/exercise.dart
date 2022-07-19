@@ -9,5 +9,20 @@
 //     q.remove(); // returns 1;
 
 class Queue {
-  
+  final List<int> list = [];
+
+  Queue();
+
+  void add(int value) {
+    this.list.add(value);
+  }
+
+  int? remove() {
+    int? result;
+    if (this.list.length > 0) {
+      result = this.list.elementAt(0);
+      this.list.removeAt(0);
+    }
+    return result;
+  }
 }

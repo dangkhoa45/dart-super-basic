@@ -15,5 +15,19 @@
 import 'linked_list.dart';
 
 bool circular(LinkedList list) {
-  
+  Node moveNode = list.head ?? Node(-1);
+  List<Node> listNode = [];
+  while (true) {
+    if (listNode.contains(moveNode)) {
+      return true;
+    } else {
+      listNode.add(moveNode);
+      if (moveNode.next != null) {
+        moveNode = moveNode.next!;
+      } else {
+        break;
+      }
+    }
+  }
+  return false;
 }
