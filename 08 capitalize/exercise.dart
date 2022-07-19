@@ -8,5 +8,13 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 String capitalize(String input) {
-  
+  List<String> list = input.split(" ");
+  List<String> newList = [];
+  list.forEach((element) {
+    final newList1 = element.split('');
+    String upperCase = newList1[0].toUpperCase();
+    newList1[0] = upperCase;
+    newList.add(newList1.join());
+  });
+  return newList.join(' ');
 }
