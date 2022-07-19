@@ -17,10 +17,20 @@
 //       '### '
 //       '####'
 
-void steps(int lineCount, {Function(String) printForUnitTest}) {
-  
+void steps(int lineCount, {Function(String)? printForUnitTest}) {
+  for (var i = 1; i <= lineCount; i++) {
+    printForUnitTest!(hashLine(lineCount, i));
+  }
 }
 
 String hashLine(int lineCount, int lineNr) {
-  
+  String result = '';
+  int numSpace = lineCount - lineNr;
+  for (var i = 1; i <= lineNr; i++) {
+    result += '#';
+  }
+  for (var i = 1; i <= numSpace; i++) {
+    result += ' ';
+  }
+  return result;
 }

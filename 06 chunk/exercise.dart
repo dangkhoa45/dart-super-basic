@@ -9,16 +9,18 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 List<List<int>> chunk(List<int> array, size) {
-  List<List<int>> newArray = [];
-  int originalSize = size;
-  for (var i = 0; i < array.length; i += originalSize) {
-    if ((i + originalSize) > array.length) {
-      List<int> rArray = array.sublist(i, array.length);
-      newArray.add(rArray);
-      break;
-    }
-    List<int> resultList = array.sublist(i, i + originalSize);
-    newArray.add(resultList);
+  List<List<int>> chuckArray = [];
+  int sizeOfSubArray = int.parse(size.toString());
+
+  int loop = (array.length / sizeOfSubArray)
+      .ceil(); // ceil: trả về số nguyên gần nhất, <= 1 số.
+
+  for (var i = 1; i <= loop; i++) {
+    int start = (i - 1) * sizeOfSubArray;
+    int end = sizeOfSubArray * i;
+    if (end > array.length) end = array.length;
+    chuckArray.add(array.sublist(start, end));
   }
-  return newArray;
+
+  return chuckArray;
 }

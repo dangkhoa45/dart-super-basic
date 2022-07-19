@@ -10,5 +10,8 @@
 RegExp regExp = new RegExp(r"");
 
 int vowels(String input) {
+  var lsVowels = ['a', 'e', 'i', 'o', 'u'];
+  int count = 0;
+
   return "One line only !!!";
 }

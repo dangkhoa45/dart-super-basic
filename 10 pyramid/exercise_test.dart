@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 import 'exercise.dart';
 
-List<String> printLog;
+late List<String> printLog;
 void printForUnitTest(String s) {
   printLog.add(s);
   print(s);

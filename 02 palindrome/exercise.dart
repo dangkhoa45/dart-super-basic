@@ -10,8 +10,8 @@
 bool palindrome(String input) {
   for (int i = 0; i < input.length ~/ 2; i++) {
     if (input[i] != input[input.length - i - 1]) return false;
-    return true;
   }
+  return true;
 }
 
 bool palindrome2(String input) {

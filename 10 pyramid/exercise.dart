@@ -16,10 +16,28 @@
 
 import 'dart:math';
 
-void pyramid(int lineCount, {Function(String) printForUnitTest}) {
-  
+void pyramid(int lineCount, {Function(String)? printForUnitTest}) {
+  for (var i = 1; i <= lineCount; i++) {
+    printForUnitTest!(pyramidLine(i, lineCount));
+  }
 }
 
 String pyramidLine(int level, int height) {
-  
+  String result = '';
+
+  int lengthOfLastLevel = height * 2 - 1;
+  //Add hashtag
+
+  int lengthOfHashTag = level * 2 - 1;
+  for (var i = 1; i <= lengthOfHashTag; i++) result += '#';
+
+  int numberOfSpace = lengthOfLastLevel - result.length;
+
+  //Add space for each side
+  int lenghtLeft = (numberOfSpace ~/ 2) + lengthOfHashTag;
+  int lenghtRight = numberOfSpace + lengthOfHashTag;
+
+  result = result.padLeft(lenghtLeft);
+  result = result.padRight(lenghtRight);
+  return result;
 }

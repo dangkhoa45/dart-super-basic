@@ -1,6 +1,6 @@
-name: reversestring
+name: superbasic
 
 dev_dependencies:
   test: ^1.15.0
 environment:
-  sdk: '>=2.10.0 <3.0.0'
+  sdk: '>=2.12.0 <3.0.0'

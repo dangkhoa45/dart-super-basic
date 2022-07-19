@@ -9,20 +9,19 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 bool anagrams(String stringA, String stringB) {
-  return (sortCharsInString(stringA) == sortCharsInString(stringB))
-      ? true
-      : false;
+  var newStringA = filter(sortCharsInString(stringA).trim());
+  var newStringB = filter(sortCharsInString(stringB).trim());
+  return newStringA == newStringB;
 }
 
-RegExp regExp = new RegExp(r"\w");
+RegExp regExp = new RegExp(r"\w+"); // kiểm tra kí tự trong mảng
 
 String filter(String input) {
-  return "One line only !!!";
+  return regExp.stringMatch(input)!;
 }
 
 String sortCharsInString(String input) {
-  var list = input.toLowerCase().split("");
-  list.sort();
-  String result = list.join();
-  return result;
+  var arrayString = input.toLowerCase().split('');
+  arrayString.sort();
+  return arrayString.join();
 }
